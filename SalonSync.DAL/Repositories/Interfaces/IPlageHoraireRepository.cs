@@ -6,10 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SalonSync.BLL.Interfaces
+namespace SalonSync.DAL.Repositories.Interfaces
 {
-    public interface IPlageHoraireService 
+    public interface IPlageHoraireRepository 
     {
-        List<PlageHoraireDTO> GetPlagesHoraires(int coiffeurId);
+        public List<PlageHoraireDTO> GetPlageHoraires(int coiffeurId);
     }
 }

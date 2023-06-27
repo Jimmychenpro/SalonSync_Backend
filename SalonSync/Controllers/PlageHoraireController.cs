@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SalonSync.BLL.Interfaces;
 using SalonSync.BLL.Services;
 namespace SalonSync.API.Controllers
 {
@@ -7,17 +8,17 @@ namespace SalonSync.API.Controllers
     [ApiController]
     public class PlageHoraireController : ControllerBase
     {
-        private readonly PlageHoraireService _plagesHorairesService;
+        private readonly IPlageHoraireService _plagesHorairesService;
 
-        public PlageHoraireController(PlageHoraireService plagesHorairesService)
+        public PlageHoraireController(IPlageHoraireService plagesHorairesService)
         {
             _plagesHorairesService = plagesHorairesService;
         }
 
-        [HttpGet]
-        public IActionResult GetPlagesHoraires()
+        [HttpGet("{coiffeurId}")]
+        public IActionResult GetPlagesHoraires(int coiffeurId)
         {
-            var plagesHoraires = _plagesHorairesService.GetPlagesHoraires();
+            var plagesHoraires = _plagesHorairesService.GetPlagesHoraires(coiffeurId);
             return Ok(plagesHoraires);
         }
     }

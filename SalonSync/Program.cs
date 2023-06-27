@@ -1,4 +1,6 @@
-using SalonSync.BLL.Services;
+using SalonSync.BLL.Interfaces;
+using SalonSync.DAL.Services;
+using SalonSync.DAL.Repositories.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +11,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-builder.Services.AddScoped<PlageHoraireService>();
 
+
+builder.Services.AddCors(o => o.AddPolicy("angular", option =>
+            option.WithOrigins("http://localhost:4200")
+                    .AllowCredentials()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()));
+
+builder.Services.AddScoped<IPlageHoraireService, SalonSync.BLL.Services.PlageHoraireService>();
+builder.Services.AddScoped<IPlageHoraireRepository, PlageHoraireService>(sp =>
+    new PlageHoraireService(
+        new System.Data.SqlClient.SqlConnection(
+            builder.Configuration.GetConnectionString("default"))));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
