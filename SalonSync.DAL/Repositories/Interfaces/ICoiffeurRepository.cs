@@ -9,6 +9,7 @@ namespace SalonSync.DAL.Repositories.Interfaces
 {
     public interface ICoiffeurRepository
     {
-        List<CoiffeurDTO> GetCoiffeur(int idCoiffeur);
+        List<CoiffeurDTO> GetCoiffeurById(int idCoiffeur);
+        List<CoiffeurDTO> GetAllCoiffeur();
     }
 }

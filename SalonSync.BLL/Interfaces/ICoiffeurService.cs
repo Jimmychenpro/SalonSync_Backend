@@ -9,6 +9,8 @@ namespace SalonSync.BLL.Interfaces
 {
     public interface ICoiffeurService
     {
-        List<CoiffeurDTO> GetCoiffeur(int coiffeurId);
+        List<CoiffeurDTO> GetCoiffeurById(int coiffeurId);
+        List<CoiffeurDTO> GetAllCoiffeur();
+
     }
 }

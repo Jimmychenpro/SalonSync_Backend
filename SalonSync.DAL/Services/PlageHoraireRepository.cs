@@ -11,16 +11,16 @@ using System.Threading.Tasks;
 
 namespace SalonSync.DAL.Services
 {
-    public class PlageHoraireService : IPlageHoraireRepository
+    public class PlageHoraireRepository : IPlageHoraireRepository
     {
         private readonly IDbConnection _connection;
 
-        public PlageHoraireService(IDbConnection connection)
+        public PlageHoraireRepository(IDbConnection connection)
         {
             _connection = connection;
         }
 
-        public List<PlageHoraireDTO> GetPlageHoraires(int coiffeurId)
+        public List<PlageHoraireDTO> GetPlageHorairesByCoiffeur(int coiffeurId)
         {
             string sql = "SELECT heureDebut, PlageHoraireDate FROM PlageHoraire WHERE Id_Coiffeur = @CoiffeurId";
             return _connection.Query<PlageHoraireDTO>(sql, new { CoiffeurId = coiffeurId }).ToList();

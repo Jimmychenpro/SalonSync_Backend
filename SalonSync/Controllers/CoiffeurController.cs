@@ -15,12 +15,20 @@ namespace SalonSync.API.Controllers
             _coiffeurService = coiffeurService;
         }
 
-        // GET: api/<CoiffeurController>
+        // Get Coiffeur par son ID
         [HttpGet("{coiffeurId}")]
-        public IActionResult GetCoiffeur(int coiffeurId)
+        public IActionResult GetCoiffeurById(int coiffeurId)
         {
-            var coiffeur = _coiffeurService.GetCoiffeur(coiffeurId);
-            return Ok(coiffeur);
+            var coiffeur = _coiffeurService.GetCoiffeurById(coiffeurId);
+            return coiffeur is not null ? Ok(coiffeur) : BadRequest();
+        }
+
+        // Get Tous les Coiffeurs
+        [HttpGet]
+        public IActionResult GetAllCoiffeur() 
+        { 
+            var coiffeur = _coiffeurService.GetAllCoiffeur();
+            return coiffeur is not null ? Ok(coiffeur) : BadRequest() ; 
         }
 
         //// GET api/<CoiffeurController>/5

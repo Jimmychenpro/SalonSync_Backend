@@ -18,9 +18,14 @@ namespace SalonSync.BLL.Services
             _coiffeurRepository = coiffeurRepository;
         }
 
-        public List<CoiffeurDTO> GetCoiffeur(int coiffeurId)
+        public List<CoiffeurDTO> GetAllCoiffeur()
         {
-            return _coiffeurRepository.GetCoiffeur(coiffeurId);
+            return _coiffeurRepository.GetAllCoiffeur();
+        }
+
+        public List<CoiffeurDTO> GetCoiffeurById(int coiffeurId)
+        {
+            return _coiffeurRepository.GetCoiffeurById(coiffeurId);
         }
     }
 }

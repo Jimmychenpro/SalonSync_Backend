@@ -15,10 +15,14 @@ namespace SalonSync.API.Controllers
             _plagesHorairesService = plagesHorairesService;
         }
 
+
+
+        //Get une plage horaire avec L'ID d'un coiffeur
+
         [HttpGet("{coiffeurId}")]
-        public IActionResult GetPlagesHoraires(int coiffeurId)
+        public IActionResult GetPlageHorairesByCoiffeur(int coiffeurId)
         {
-            var plagesHoraires = _plagesHorairesService.GetPlagesHoraires(coiffeurId);
+            var plagesHoraires = _plagesHorairesService.GetPlageHorairesByCoiffeur(coiffeurId);
             return Ok(plagesHoraires);
         }
     }

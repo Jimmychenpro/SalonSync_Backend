@@ -18,34 +18,12 @@ namespace SalonSync.BLL.Services
         {
             _plageHoraireRepository = plageHoraireRepository;
         }
-
-        
-        
-        
-        
-        public List<PlageHoraireDTO> GetPlagesHoraires(int coiffeurId )
+ 
+        public List<PlageHoraireDTO> GetPlageHorairesByCoiffeur(int coiffeurId )
         {
-            return _plageHoraireRepository.GetPlageHoraires( coiffeurId );
+            return _plageHoraireRepository.GetPlageHorairesByCoiffeur( coiffeurId );
     
         }
-
-
-            //TimeSpan heureDebut = new TimeSpan(8, 0, 0); // 08:00
-            //TimeSpan heureFin = new TimeSpan(20, 0, 0); // 20:00
-            //TimeSpan pas = new TimeSpan(0, 30, 0); // Pas de 30 minutes
-
-            //while (heureDebut < heureFin)
-            //{
-            //    PlageHoraire plageHoraire = new PlageHoraire
-            //    {
-            //        HeureDebut = heureDebut,
-            //        HeureFin = heureDebut.Add(pas)
-            //    };
-
-            //    plagesHoraires.Add(plageHoraire);
-
-            //    heureDebut = heureDebut.Add(pas);
-            //}
 
     }
 }

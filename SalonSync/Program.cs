@@ -1,6 +1,7 @@
 using SalonSync.BLL.Interfaces;
 using SalonSync.DAL.Services;
 using SalonSync.DAL.Repositories.Interfaces;
+using SalonSync.BLL.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,10 +19,19 @@ builder.Services.AddCors(o => o.AddPolicy("angular", option =>
                     .AllowCredentials()
                     .AllowAnyMethod()
                     .AllowAnyHeader()));
-
+//BLL
 builder.Services.AddScoped<IPlageHoraireService, SalonSync.BLL.Services.PlageHoraireService>();
-builder.Services.AddScoped<IPlageHoraireRepository, PlageHoraireService>(sp =>
-    new PlageHoraireService(
+//DAL
+builder.Services.AddScoped<IPlageHoraireRepository, PlageHoraireRepository>(sp =>
+    new PlageHoraireRepository(
+        new System.Data.SqlClient.SqlConnection(
+            builder.Configuration.GetConnectionString("default"))));
+
+//BLL
+builder.Services.AddScoped<ICoiffeurService, CoiffeurService>();
+//DAL
+builder.Services.AddScoped<ICoiffeurRepository, CoiffeurRepository>(sp =>
+    new CoiffeurRepository(
         new System.Data.SqlClient.SqlConnection(
             builder.Configuration.GetConnectionString("default"))));
 var app = builder.Build();
