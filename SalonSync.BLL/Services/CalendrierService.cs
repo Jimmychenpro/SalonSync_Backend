@@ -44,6 +44,7 @@ namespace SalonSync.BLL.Services
             {
                 for (int i = 0; i < calendrier.Count; i++)
                 {
+                    var jours = calendrier.FirstOrDefault(c => c.)
                     calendrier[0].Lundi
                 }
             }
