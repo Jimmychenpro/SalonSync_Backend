@@ -56,8 +56,12 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Functions" />
+    <Folder Include="Functions\StoredProcedure" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Coiffeur.sql" />
+    <Build Include="Functions\StoredProcedure\CreateCoiffeur.sql" />
+    <Build Include="PlageHoraire.sql" />
   </ItemGroup>
 </Project>

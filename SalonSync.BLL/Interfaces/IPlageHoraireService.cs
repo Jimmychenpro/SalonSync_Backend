@@ -11,5 +11,6 @@ namespace SalonSync.BLL.Interfaces
     public interface IPlageHoraireService 
     {
         List<PlageHoraireDTO> GetPlageHorairesByCoiffeur(int coiffeurId);
+        List<PlageHoraireDTO> GetAllPlageHoraires();
     }
 }

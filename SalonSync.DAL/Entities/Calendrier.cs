@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,10 +9,13 @@ namespace SalonSync.DAL.Entities
 {
     public class Calendrier
     {
-        public int Id { get; set; }
-        public DateTime PlageHoraireDate { get; set; }
-        public TimeSpan HeureDebut { get; set; }
-        public TimeSpan HeureFin { get; set; }
-        public bool EstDisponible { get; set; }
+        public TimeSpan Lundi { get; set; }
+        public TimeSpan Mardi { get; set; }
+        public TimeSpan Mercredi { get; set; }
+        public TimeSpan Jeudi { get; set; }
+        public TimeSpan Vendredi { get; set; }
+        public TimeSpan Samedi { get; set; }
+        public TimeSpan Dimanche { get; set; }
+
     }
 }

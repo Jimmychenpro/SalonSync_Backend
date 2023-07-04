@@ -25,5 +25,12 @@ namespace SalonSync.API.Controllers
             var plagesHoraires = _plagesHorairesService.GetPlageHorairesByCoiffeur(coiffeurId);
             return Ok(plagesHoraires);
         }
+
+        [HttpGet]
+        public IActionResult GetAllPlageHoraire()
+        {
+            var coiffeur = _plagesHorairesService.GetAllPlageHoraires();
+            return coiffeur is not null ? Ok(coiffeur) : BadRequest();
+        }
     }
 }

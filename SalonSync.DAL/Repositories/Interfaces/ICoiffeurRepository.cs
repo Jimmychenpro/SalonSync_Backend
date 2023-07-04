@@ -1,4 +1,5 @@
 ﻿using SalonSync.DAL.Entities.DTO;
+using SalonSync.DAL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace SalonSync.DAL.Repositories.Interfaces
     {
         List<CoiffeurDTO> GetCoiffeurById(int idCoiffeur);
         List<CoiffeurDTO> GetAllCoiffeur();
+        Coiffeur CreateCoiffeur(Coiffeur coiffeur);
     }
 }

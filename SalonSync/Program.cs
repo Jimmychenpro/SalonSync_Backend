@@ -34,6 +34,15 @@ builder.Services.AddScoped<ICoiffeurRepository, CoiffeurRepository>(sp =>
     new CoiffeurRepository(
         new System.Data.SqlClient.SqlConnection(
             builder.Configuration.GetConnectionString("default"))));
+
+
+//BLL
+builder.Services.AddScoped<ICalendrierService, CalendrierService>();
+//DAL
+builder.Services.AddScoped<ICalendrierRepository, CalendrierRepository>(sp =>
+    new CalendrierRepository(
+        new System.Data.SqlClient.SqlConnection(
+            builder.Configuration.GetConnectionString("default"))));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

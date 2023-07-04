@@ -20,6 +20,12 @@ namespace SalonSync.DAL.Services
             _connection = connection;
         }
 
+        public List<PlageHoraireDTO> GetAllPlageHoraires()
+        {
+            string sql = "SELECT * FROM PlageHoraire";
+            return _connection.Query<PlageHoraireDTO>(sql).ToList();
+        }
+
         public List<PlageHoraireDTO> GetPlageHorairesByCoiffeur(int coiffeurId)
         {
             string sql = "SELECT heureDebut, PlageHoraireDate FROM PlageHoraire WHERE Id_Coiffeur = @CoiffeurId";

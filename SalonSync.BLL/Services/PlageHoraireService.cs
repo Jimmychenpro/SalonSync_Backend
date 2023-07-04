@@ -18,7 +18,12 @@ namespace SalonSync.BLL.Services
         {
             _plageHoraireRepository = plageHoraireRepository;
         }
- 
+
+        public List<PlageHoraireDTO> GetAllPlageHoraires()
+        {
+            return _plageHoraireRepository.GetAllPlageHoraires();
+        }
+
         public List<PlageHoraireDTO> GetPlageHorairesByCoiffeur(int coiffeurId )
         {
             return _plageHoraireRepository.GetPlageHorairesByCoiffeur( coiffeurId );

@@ -11,5 +11,6 @@ namespace SalonSync.DAL.Repositories.Interfaces
     public interface IPlageHoraireRepository 
     {
         public List<PlageHoraireDTO> GetPlageHorairesByCoiffeur(int coiffeurId);
+        public List<PlageHoraireDTO> GetAllPlageHoraires();
     }
 }
